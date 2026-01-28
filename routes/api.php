@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/portofolios', [App\Http\Controllers\PortofolioController::class, 'index'])->name('api.portofolios.index');
