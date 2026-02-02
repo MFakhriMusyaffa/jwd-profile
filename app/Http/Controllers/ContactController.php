@@ -2,23 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
+
 use Illuminate\Http\Request;
+use App\Models\Contact;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
      public function store(Request $request)
     {
-        $validated = $request->validate([
-            'name'    => 'required|string|max:255',
-            'email'   => 'required|email',
-            'message' => 'required',
-        ]);
+       $validator = Validator::make($request->all(), [
+        'name'    => 'required|string|max:255',
+        'email'   => 'required|email',
+        'message' => 'required',
+    ]);
 
-        Contact::create($validated);
-
+    if ($validator->fails()) {
         return response()->json([
-            'message' => 'Pesan berhasil dikirim'
-        ], 201);
+            'errors' => $validator->errors()
+        ], 422);
+    }
+
+    Contact::create($validator->validated());
+
+    return response()->json([
+        'message' => 'Pesan berhasil dikirim'
+    ], 201);
     }
 }
