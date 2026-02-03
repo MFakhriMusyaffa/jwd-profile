@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('category_portofolios', function (Blueprint $table) {
             $table->id();
-            $table->string('name_category');
+            $table->string('name_category')->unique();
             $table->timestamps();
         });
     }
