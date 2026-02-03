@@ -52,29 +52,21 @@ class CategoryPortofolioController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    // public function edit(string $id)
-    // {
-    //     //
-    // }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        $category = CategoryPortofolio::findOrFail($id);
-        $validated = $request->validate([
-            'name_category' => 'required|string|max:50|unique:category_portofolios,name_category',
-        ]);
+        public function update(Request $request, string $id)
+        {
+            $category = CategoryPortofolio::findOrFail($id);
+            $validated = $request->validate([
+                'name_category' => 'required|string|max:50|unique:category_portofolios,name_category',
+            ]);
 
-        $category->update($validated);
-        return response()->json([
-            'message' => 'Berhasil, mengupdate category',
-            'data' => $category
-        ], 200);
-    }
+            $category->update($validated);
+            return response()->json([
+                'message' => 'Berhasil, mengupdate category',
+                'data' => $category
+            ], 200);
+        }
 
     /**
      * Remove the specified resource from storage.
