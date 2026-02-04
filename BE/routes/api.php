@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryPortofolioController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PortofolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ use App\Http\Controllers\ContactController;
 Route::post('/login', [AuthController::class, 'login']);
 Route::apiResource('categories', CategoryPortofolioController::class);
 Route::get('/categories', [CategoryPortofolioController::class, 'index']);
+Route::get('/portofolios', [PortofolioController::class, 'index']);
 Route::post('/contact', [ContactController::class, 'store']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/me', [AuthController::class, 'me']);

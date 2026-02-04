@@ -17,5 +17,3 @@ use App\Http\Controllers\PortofolioController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/portofolios', [PortofolioController::class, 'index'])->name('portofolios.index');
