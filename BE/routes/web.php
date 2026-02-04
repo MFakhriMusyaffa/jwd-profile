@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PortofolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/portofolios', [App\Http\Controllers\PortofolioController::class, 'index'])->name('portofolios.index');
+Route::get('/portofolios', [PortofolioController::class, 'index'])->name('portofolios.index');
