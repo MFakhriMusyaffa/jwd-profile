@@ -64,7 +64,7 @@ class AuthController extends Controller
             ], 200);
         } catch (Exception $e) {
             return response()->json([
-                'message' => 'Login failed: ' . $e->getMessage(),
+                'message' => 'Logout failed: ' . $e->getMessage(),
             ], 500);
         }
     }
