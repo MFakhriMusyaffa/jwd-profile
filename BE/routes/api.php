@@ -23,6 +23,8 @@ Route::apiResource('categories', CategoryPortofolioController::class);
 Route::get('/categories', [CategoryPortofolioController::class, 'index']);
 Route::get('/portofolios', [PortofolioController::class, 'index']);
 Route::post('/contact', [ContactController::class, 'store']);
+Route::get('/contact', [ContactController::class, 'index']);
+Route::delete('/contact/{id}', [ContactController::class, 'destroy']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/me', [AuthController::class, 'me']);
     Route::post('/logout', [AuthController::class, 'logout']);
