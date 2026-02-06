@@ -15,7 +15,7 @@ interface TechItem {
 }
 
 const techStackData: Record<string, TechItem[]> = {
-  "Backend": [
+  Backend: [
     {
       name: "Node.js",
       icon: "devicon:nodejs",
@@ -38,7 +38,7 @@ const techStackData: Record<string, TechItem[]> = {
       description: "Query language for APIs",
     },
   ],
-  "Frontend": [
+  Frontend: [
     {
       name: "React",
       icon: "skill-icons:react-dark",
@@ -75,7 +75,7 @@ const techStackData: Record<string, TechItem[]> = {
       description: "Utility-first CSS framework for rapid UI development",
     },
   ],
-  "Database": [
+  Database: [
     {
       name: "PostgreSQL",
       icon: "logos:postgresql",
@@ -123,6 +123,15 @@ const techStackData: Record<string, TechItem[]> = {
       description: "Design tool for creating visual content",
     },
   ],
+  CMS: [
+    {
+      name: "WordPress",
+      icon: "simple-icons:wordpress",
+      level: "Intermediate",
+      category: "CMS",
+      description: "Open-source content management system",
+    },
+  ],
 };
 
 export default function TechStackSection() {
@@ -130,39 +139,21 @@ export default function TechStackSection() {
 
   const categories = ["All", ...Object.keys(techStackData)];
 
-  const filteredTech = activeCategory === "All"
-    ? Object.values(techStackData).flat()
-    : techStackData[activeCategory] || [];
+  const filteredTech = activeCategory === "All" ? Object.values(techStackData).flat() : techStackData[activeCategory] || [];
 
   return (
-    <motion.section
-      id="stack"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="mb-16"
-    >
-      <SectionHeader
-        tagText="Tech Arsenal"
-        tagIcon="solar:settings-bold"
-        heading="Technology Stack"
-        description="Technologies I use to bring ideas to life"
-        showUnderline={false}
-        centered={true}
-      />
+    <motion.section id="stack" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="mb-16">
+      <SectionHeader tagText="Tech Arsenal" tagIcon="solar:settings-bold" heading="Technology Stack" description="Technologies I use to bring ideas to life" showUnderline={false} centered={true} />
       <div className="mb-8">
-
         {/* Category Filter */}
         <div className="flex flex-wrap gap-2 mb-6">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === category
-                ? "bg-blue-600 text-white shadow-lg scale-105"
-                : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
-                }`}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                activeCategory === category ? "bg-blue-600 text-white shadow-lg scale-105" : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
+              }`}
             >
               {category}
             </button>
@@ -174,23 +165,11 @@ export default function TechStackSection() {
         // Categorized view
         <div className="space-y-8">
           {Object.entries(techStackData).map(([categoryName, techs]) => (
-            <motion.div
-              key={categoryName}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
-                {categoryName}
-              </h3>
+            <motion.div key={categoryName} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+              <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">{categoryName}</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                 {techs.map((tech, index) => (
-                  <TechCard
-                    key={tech.name}
-                    tech={tech}
-                    index={index}
-                  />
+                  <TechCard key={tech.name} tech={tech} index={index} />
                 ))}
               </div>
             </motion.div>
@@ -200,11 +179,7 @@ export default function TechStackSection() {
         // Filtered view
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4">
           {filteredTech.map((tech, index) => (
-            <TechCard
-              key={tech.name}
-              tech={tech}
-              index={index}
-            />
+            <TechCard key={tech.name} tech={tech} index={index} />
           ))}
         </div>
       )}
@@ -212,13 +187,7 @@ export default function TechStackSection() {
   );
 }
 
-function TechCard({
-  tech,
-  index
-}: {
-  tech: TechItem;
-  index: number;
-}) {
+function TechCard({ tech, index }: { tech: TechItem; index: number }) {
   const getLevelGradient = (level: string) => {
     switch (level) {
       case "Expert":
@@ -259,7 +228,7 @@ function TechCard({
         duration: 0.6,
         delay: index * 0.05,
         type: "spring",
-        stiffness: 100
+        stiffness: 100,
       }}
       viewport={{ once: true }}
       className="group relative"
@@ -271,7 +240,6 @@ function TechCard({
 
         {/* Main Card */}
         <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-2xl border border-gray-200/60 dark:border-gray-700/60 group-hover:border-gray-300/80 dark:group-hover:border-gray-600/80 transition-all duration-300 shadow-lg group-hover:shadow-2xl group-hover:shadow-black/5 dark:group-hover:shadow-black/40 overflow-hidden">
-
           {/* Subtle Top Accent - Much More Refined */}
           <div className="relative h-0.5 bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent">
             <div className={`absolute inset-0 bg-gradient-to-r ${getLevelGradient(tech.level)} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
@@ -279,9 +247,9 @@ function TechCard({
 
           {/* Floating Particles Background */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
-            <div className="absolute top-4 right-4 w-1 h-1 bg-gray-300 dark:bg-gray-600 rounded-full animate-pulse" style={{ animationDelay: '0s' }} />
-            <div className="absolute top-8 left-6 w-0.5 h-0.5 bg-gray-400 dark:bg-gray-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-            <div className="absolute bottom-6 right-8 w-0.5 h-0.5 bg-gray-300 dark:bg-gray-600 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+            <div className="absolute top-4 right-4 w-1 h-1 bg-gray-300 dark:bg-gray-600 rounded-full animate-pulse" style={{ animationDelay: "0s" }} />
+            <div className="absolute top-8 left-6 w-0.5 h-0.5 bg-gray-400 dark:bg-gray-500 rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
+            <div className="absolute bottom-6 right-8 w-0.5 h-0.5 bg-gray-300 dark:bg-gray-600 rounded-full animate-pulse" style={{ animationDelay: "2s" }} />
           </div>
 
           <div className="p-4 relative">
@@ -290,12 +258,7 @@ function TechCard({
               <div className="relative group/icon">
                 {/* Icon Background with Subtle Pattern */}
                 <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 p-3 rounded-xl border border-gray-200/50 dark:border-gray-600/50 group-hover:border-gray-300/70 dark:group-hover:border-gray-500/70 transition-all duration-300">
-                  <Icon
-                    icon={tech.icon}
-                    className="group-hover/icon:scale-110 group-hover/icon:rotate-3 transition-all duration-300"
-                    width={36}
-                    height={36}
-                  />
+                  <Icon icon={tech.icon} className="group-hover/icon:scale-110 group-hover/icon:rotate-3 transition-all duration-300" width={36} height={36} />
 
                   {/* Subtle Icon Glow */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${getLevelGradient(tech.level)} rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
@@ -304,9 +267,7 @@ function TechCard({
             </div>
 
             {/* Technology Name with Better Typography */}
-            <h3 className="text-sm font-bold text-gray-900 dark:text-gray-100 text-center mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors tracking-tight">
-              {tech.name}
-            </h3>
+            <h3 className="text-sm font-bold text-gray-900 dark:text-gray-100 text-center mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors tracking-tight">{tech.name}</h3>
 
             {/* Skill Level Badge */}
             <div className="flex justify-center mb-2">
@@ -320,9 +281,9 @@ function TechCard({
             {tech.yearsUsed && (
               <div className="text-center">
                 <div className="inline-flex items-center gap-1">
-                  <div className={`w-1 h-1 rounded-full ${getExperienceColor(tech.yearsUsed).replace('text-', 'bg-')}`} />
+                  <div className={`w-1 h-1 rounded-full ${getExperienceColor(tech.yearsUsed).replace("text-", "bg-")}`} />
                   <span className={`text-xs font-medium ${getExperienceColor(tech.yearsUsed)}`}>
-                    {tech.yearsUsed} year{tech.yearsUsed > 1 ? 's' : ''} exp
+                    {tech.yearsUsed} year{tech.yearsUsed > 1 ? "s" : ""} exp
                   </span>
                 </div>
               </div>
@@ -330,14 +291,15 @@ function TechCard({
           </div>
 
           {/* Subtle Mesh Pattern Overlay */}
-          <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05] pointer-events-none"
+          <div
+            className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05] pointer-events-none"
             style={{
               backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
-              backgroundSize: '20px 20px'
+              backgroundSize: "20px 20px",
             }}
           />
         </div>
       </div>
     </motion.div>
   );
-} 
+}
