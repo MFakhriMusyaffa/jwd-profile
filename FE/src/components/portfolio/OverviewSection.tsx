@@ -42,14 +42,7 @@ export default function OverviewSection() {
   };
 
   return (
-    <motion.section
-      id="overview"
-      className="mb-16 md:mb-24 lg:mb-32 relative"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1.2 }}
-      viewport={{ once: true }}
-    >
+    <motion.section id="overview" className="mb-16 md:mb-24 lg:mb-32 relative" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true }}>
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -63,41 +56,18 @@ export default function OverviewSection() {
           style={{ animationDelay: "3s" }}
           className="absolute bottom-8 md:bottom-16 left-4 md:left-16 w-24 md:w-40 h-24 md:h-40 bg-gradient-to-br from-green-400/15 md:from-green-400/20 to-cyan-400/15 md:to-cyan-400/20 rounded-full blur-xl md:blur-2xl"
         />
-        <motion.div
-          variants={floatVariants}
-          animate="animate"
-          style={{ animationDelay: "6s" }}
-          className="hidden md:block absolute top-1/2 left-1/3 w-16 h-16 bg-gradient-to-br from-pink-400/25 to-orange-400/25 rounded-full blur-xl"
-        />
+        <motion.div variants={floatVariants} animate="animate" style={{ animationDelay: "6s" }} className="hidden md:block absolute top-1/2 left-1/3 w-16 h-16 bg-gradient-to-br from-pink-400/25 to-orange-400/25 rounded-full blur-xl" />
       </div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="relative z-10"
-      >
+      <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative z-10">
         {/* Section Header */}
-        <SectionHeader
-          tagText="Get To Know Me"
-          tagIcon="solar:user-heart-bold"
-          heading="About Me"
-          description="Crafting digital experiences with passion, precision, and purpose"
-          showUnderline={true}
-          centered={true}
-        />
+        <SectionHeader tagText="Get To Know Me" tagIcon="solar:user-heart-bold" heading="About Me" description="Crafting digital experiences with passion, precision, and purpose" showUnderline={true} centered={true} />
 
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-12 gap-6 md:gap-8 items-start px-4">
-
           {/* Main Profile Section */}
-          <motion.div
-            variants={itemVariants}
-            className="lg:col-span-8"
-          >
+          <motion.div variants={itemVariants} className="lg:col-span-8">
             <div className="space-y-6 md:space-y-8">
-
               {/* Introduction Card */}
               <div className="relative p-4 md:p-6 lg:p-8 rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/90 to-white/50 dark:from-gray-800/90 dark:to-gray-900/50 backdrop-blur-xl border border-white/30 dark:border-gray-700/40 shadow-2xl">
                 {/* Decorative Elements */}
@@ -109,28 +79,23 @@ export default function OverviewSection() {
                   <div>
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-900 dark:text-white flex items-center gap-2 md:gap-3">
                       <span className="text-2xl sm:text-3xl md:text-4xl">👋</span>
-                      Hello, I&apos;m Muhammad Ramazan
+                      Hello, We Are Junior Web Developer
                     </h3>
                     <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-4 md:mb-6">
-                      A passionate <span className="font-bold text-blue-600 dark:text-blue-400">Full Stack Developer</span> and
-                      <span className="font-bold text-purple-600 dark:text-purple-400">
-                        &nbsp; AI enthusiast</span> with
-                      <span className="font-bold text-green-600 dark:text-green-400"> 5+ years</span> of experience crafting
-                      digital experiences that users love.
+                      A passionate <span className="font-bold text-blue-600 dark:text-blue-400">Full Stack Developer</span>,<span className="font-bold text-purple-600 dark:text-purple-400"> Frontend Developer</span>, and
+                      <span className="font-bold text-green-600 dark:text-green-400"> Backend Devloper</span>
                     </p>
                   </div>
 
                   {/* Expanded About Content */}
                   <div className="space-y-3 md:space-y-4 border-t border-gray-200/50 dark:border-gray-700/50 pt-4 md:pt-6">
                     <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                      I specialize in building scalable web and mobile applications using React, Next.js, TypeScript,
-                      and modern development technologies. I thrive on turning complex problems into elegant solutions
-                      that users love.
+                      We are a team of aspiring developers passionate about building modern web solutions. We specialize in core technologies like WordPress, React, Next.js, Node.js, and Laravel, combined with a focus on clean UI/UX Design.
+                      We specialize in core technologies like WordPress, React, Next.js, Node.js, and Laravel, combined with a focus on clean UI/UX Design.
                     </p>
                     <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                      Beyond work, I love exploring emerging technologies, contributing to open-source projects, and
-                      mentoring aspiring developers. I believe in continuous learning and staying at the forefront of
-                      technological innovation.
+                      Even though we are at the beginning of our journey, we believe in the power of collaboration and continuous learning. Each project is an opportunity for us to refine our skills and deliver high-quality digital
+                      experiences that meet modern standards.
                     </p>
                   </div>
 
@@ -141,7 +106,7 @@ export default function OverviewSection() {
                       Core Technologies
                     </h4>
                     <div className="flex flex-wrap gap-2 md:gap-3">
-                      {["AI Integration", "React", "Next.js", "TypeScript", "Node.js", "Python", "AWS", "UI/UX Design", "Healthcare IT"].map((skill, index) => (
+                      {["Wordpress", "React", "Next.js", "Node.js", "Laravel", "UI/UX Design"].map((skill, index) => (
                         <motion.span
                           key={skill}
                           initial={{ opacity: 0, scale: 0 }}
@@ -161,7 +126,7 @@ export default function OverviewSection() {
 
               {/* Professional Roles Grid */}
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                <motion.div
+                {/* <motion.div
                   variants={itemVariants}
                   whileHover={{ scale: 1.02, y: -5 }}
                   className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-gradient-to-br from-blue-50/80 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/20 backdrop-blur-sm border border-blue-200/50 dark:border-blue-800/30 shadow-xl flex flex-col"
@@ -177,16 +142,15 @@ export default function OverviewSection() {
                     </div>
                   </div>
                   <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-relaxed mb-2 md:mb-3 flex-1">
-                    Delivering high-quality projects across diverse domains, specializing in web applications,
-                    API development, and cloud integrations.
+                    Delivering high-quality projects across diverse domains, specializing in web applications, API development, and cloud integrations.
                   </p>
                   <div className="flex items-center gap-2 text-xs md:text-sm mt-auto">
                     <Icon icon="solar:star-bold" className="text-yellow-500 w-3 md:w-4 h-3 md:h-4" width={16} height={16} />
                     <span className="font-semibold text-green-600 dark:text-green-400">Top Rated • 91% Success Score</span>
                   </div>
-                </motion.div>
+                </motion.div> */}
 
-                <motion.div
+                {/* <motion.div
                   variants={itemVariants}
                   whileHover={{ scale: 1.02, y: -5 }}
                   className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-gradient-to-br from-green-50/80 to-green-100/50 dark:from-green-950/30 dark:to-green-900/20 backdrop-blur-sm border border-green-200/50 dark:border-green-800/30 shadow-xl flex flex-col"
@@ -202,14 +166,13 @@ export default function OverviewSection() {
                     </div>
                   </div>
                   <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-relaxed mb-2 md:mb-3 flex-1">
-                    Leading digital transformation in healthcare, integrating 45+ radiology machines and
-                    training teams on modern HIMS and PACS systems.
+                    Leading digital transformation in healthcare, integrating 45+ radiology machines and training teams on modern HIMS and PACS systems.
                   </p>
                   <div className="flex items-center gap-2 text-xs md:text-sm mt-auto">
                     <Icon icon="solar:shield-check-bold" className="text-blue-500 w-3 md:w-4 h-3 md:h-4" width={16} height={16} />
                     <span className="font-semibold text-blue-600 dark:text-blue-400">Healthcare IT Specialist</span>
                   </div>
-                </motion.div>
+                </motion.div> */}
               </div>
             </div>
           </motion.div>
@@ -233,38 +196,32 @@ export default function OverviewSection() {
                     <Icon icon="solar:letter-bold" className="text-white w-4 h-4" width={16} height={16} />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-gray-900 dark:text-white break-all">mramazan1@yahoo.com</div>
+                    <div className="text-sm font-bold text-gray-900 dark:text-white break-all">juniorwebfeducation@gmail.com</div>
                   </div>
                 </motion.a>
 
-                <motion.div
-                  whileHover={{ scale: 1.02, x: 4 }}
-                  className="flex items-center gap-3 p-3 rounded-lg bg-white/70 dark:bg-gray-800/30 border border-white/20 dark:border-gray-700/30"
-                >
+                <motion.div whileHover={{ scale: 1.02, x: 4 }} className="flex items-center gap-3 p-3 rounded-lg bg-white/70 dark:bg-gray-800/30 border border-white/20 dark:border-gray-700/30">
                   <div className="p-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md shadow-md">
                     <Icon icon="solar:global-bold" className="text-white w-4 h-4" width={16} height={16} />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-gray-900 dark:text-white">mramazan.dev</div>
+                    <div className="text-sm font-bold text-gray-900 dark:text-white">juniorwebdeveloper.dev</div>
                   </div>
                 </motion.div>
 
-                <motion.div
-                  whileHover={{ scale: 1.02, x: 4 }}
-                  className="flex items-center gap-3 p-3 rounded-lg bg-white/70 dark:bg-gray-800/30"
-                >
+                <motion.div whileHover={{ scale: 1.02, x: 4 }} className="flex items-center gap-3 p-3 rounded-lg bg-white/70 dark:bg-gray-800/30">
                   <div className="p-1 bg-gradient-to-r from-red-500 to-pink-500 rounded-md shadow-md border border-white/20 dark:border-gray-700/30">
                     <Icon icon="solar:map-point-bold" className="text-white w-4 h-4" width={16} height={16} />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-gray-900 dark:text-white">Islamabad, Pakistan</div>
+                    <div className="text-sm font-bold text-gray-900 dark:text-white">Jakarta, Indonesia</div>
                   </div>
                 </motion.div>
               </div>
             </div>
 
             {/* Achievement Highlights */}
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-50/90 to-yellow-50/90 dark:from-amber-950/30 dark:to-yellow-950/30 backdrop-blur-sm border border-white/30 dark:border-gray-700/40 shadow-xl">
+            {/* <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-50/90 to-yellow-50/90 dark:from-amber-950/30 dark:to-yellow-950/30 backdrop-blur-sm border border-white/30 dark:border-gray-700/40 shadow-xl">
               <h4 className="font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
                 <Icon icon="solar:cup-star-bold" className="text-amber-600 w-5 h-5" width={20} height={20} />
                 Achievements
@@ -287,10 +244,10 @@ export default function OverviewSection() {
                   </motion.div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Available for Hire */}
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-emerald-50/90 to-cyan-50/90 dark:from-emerald-950/30 dark:to-cyan-950/30 backdrop-blur-sm border border-white/30 dark:border-gray-700/40 shadow-xl">
+            {/* <div className="p-6 rounded-2xl bg-gradient-to-br from-emerald-50/90 to-cyan-50/90 dark:from-emerald-950/30 dark:to-cyan-950/30 backdrop-blur-sm border border-white/30 dark:border-gray-700/40 shadow-xl">
               <h4 className="font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
                 <Icon icon="solar:rocket-bold" className="text-emerald-600 w-5 h-5" width={20} height={20} />
                 Available for Hire
@@ -324,10 +281,10 @@ export default function OverviewSection() {
                   <span className="text-sm font-medium text-gray-800 dark:text-gray-300">Remote & On-site Available</span>
                 </motion.div>
               </div>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </motion.div>
     </motion.section>
   );
-} 
+}
